@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- =====  BASIC PAGE NEEDS  ===== -->
+	<meta charset="utf-8">
+	<title>Iklanku</title>
+	<!-- =====  SEO MATE  ===== -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="distribution" content="global">
+	<meta name="revisit-after" content="2 Days">
+	<meta name="robots" content="ALL">
+	<meta name="rating" content="8 YEARS">
+	<meta name="Language" content="en-us">
+	<meta name="GOOGLEBOT" content="NOARCHIVE">
+	<!-- =====  MOBILE SPECIFICATION  ===== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width">
+	<!-- =====  CSS  ===== -->
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font/stylesheet.css" />
+	<style>
+		body{
+			font-family: 'comfortaaregular';
+			background-color: #f8f9fa!important;
+		}
+		.form-control{
+			height: 60px!important;
+			border-radius: 1.2rem!important;
+			background-color: white!important;
+			text-align: center;
+		}
+		.placeh{
+			font-size: 30px;
+			color: #656363!important;
+			position: absolute;
+	    z-index: 9;
+	    top: 12px;
+	    left: 16px;
+		}
+		.sign-in-b{
+			border-radius: 1.3rem;
+			background: white;
+			border: 1px black solid;
+			vertical-align: center;
+			font-size: 12px;
+			width: 200px;
+			text-align: left;
+		}
+		.sign-in-b:hover{
+			background-color: #17a2b8;
+		}
+		.containers {
+		  display: block;
+		  position: relative;
+		  /*padding-left: 35px;*/
+		  margin-bottom: 12px;
+		  cursor: pointer;
+		  font-size: 22px;
+		  -webkit-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		/* Hide the browser's default checkbox */
+		.containers input {
+		  position: absolute;
+		  opacity: 0;
+		  cursor: pointer;
+		  height: 0;
+		  width: 0;
+		}
+
+		/* Create a custom checkbox */
+		.checkmark {
+		  position: absolute;
+		  top: 0;
+		  left: 0;
+		  height: 20px;
+		  width: 20px;
+		  background-color: white;
+		  border: 1px grey solid;
+		  border-radius: 5px;
+		}
+
+		/* On mouse-over, add a grey background color */
+		.containers:hover input ~ .checkmark {
+		  background-color: #17a2b8;
+		}
+
+		/* When the checkbox is checked, add a blue background */
+		.containers input:checked ~ .checkmark {
+		  background-color: #2196F3;
+		}
+
+		/* Create the checkmark/indicator (hidden when not checked) */
+		.checkmark:after {
+		  content: "";
+		  position: absolute;
+		  display: none;
+		}
+
+		/* Show the checkmark when checked */
+		.containers input:checked ~ .checkmark:after {
+		  display: block;
+		}
+
+		/* Style the checkmark/indicator */
+		.containers .checkmark:after {
+		  left: 9px;
+		  top: 5px;
+		  width: 5px;
+		  height: 10px;
+		  border: solid white;
+		  border-width: 0 3px 3px 0;
+		  -webkit-transform: rotate(45deg);
+		  -ms-transform: rotate(45deg);
+		  transform: rotate(45deg);
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">
+		  <a class="navbar-brand" href="#" style="font-size: 30px;"><h1 class="font-weight-bold">iklan<span class="text-info">ku</span></h1></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Dropdown
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">Action</a>
+		          <a class="dropdown-item" href="#">Another action</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Something else here</a>
+		        </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<div class="title text-center mt-5 pt-5">
+			<div class="title mt-5 mb-5">
+				<h5 class="font-weight-bold" style="font-size: 26px;">Sign Up</h5>
+			</div>
+			<form action="" method="post">
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-user placeh"></i>
+						<input type="text" name="namauser" placeholder="username" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-envelope placeh"></i>
+						<input type="text" name="email" placeholder="email address" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-lock placeh"></i>
+						<input type="password" name="sandi" placeholder="password" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-phone placeh"></i>
+						<input type="text" name="number" placeholder="mobile number" class="form-control">
+					</div>
+				</div>
+			</form>
+		  <div class="row">
+		  	<div class="col"></div>
+		  	<div class="col-7">
+				  <label class="containers" style="font-size: 14px;"> Berlangganan <span class="text-info">NewsLetter</span>
+					  <input type="checkbox">
+					  <span class="checkmark"></span>
+					</label>
+		  	</div>
+		  	<div class="col"></div>
+		  </div>
+			<button class="btn btn-lg btn-info pl-5 pr-5 mb-5 mt-3" style="border-radius: 1.3rem;"><h1>daftar</h1></button>
+			<br>
+		</div>
+	</div>
+	<script src="jquery/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

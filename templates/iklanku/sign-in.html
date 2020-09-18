@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- =====  BASIC PAGE NEEDS  ===== -->
+	<meta charset="utf-8">
+	<title>Iklanku</title>
+	<!-- =====  SEO MATE  ===== -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="distribution" content="global">
+	<meta name="revisit-after" content="2 Days">
+	<meta name="robots" content="ALL">
+	<meta name="rating" content="8 YEARS">
+	<meta name="Language" content="en-us">
+	<meta name="GOOGLEBOT" content="NOARCHIVE">
+	<!-- =====  MOBILE SPECIFICATION  ===== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width">
+	<!-- =====  CSS  ===== -->
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font/stylesheet.css" />
+	<style>
+		body{
+			font-family: 'comfortaaregular';
+			background-color: #f8f9fa!important;
+		}
+		input{
+			height: 60px!important;
+			border-radius: 1.2rem!important;
+			background-color: white!important;
+			text-align: center;
+		}
+		.placeh{
+			font-size: 30px;
+			color: #656363!important;
+			position: absolute;
+	    z-index: 9;
+	    top: 12px;
+	    left: 16px;
+		}
+		.sign-in-b{
+			border-radius: 1.3rem;
+			background: white;
+			border: 1px black solid;
+			vertical-align: center;
+			font-size: 12px;
+			width: 200px;
+			text-align: left;
+		}
+		.sign-in-b:hover{
+			background-color: #17a2b8;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">
+		  <a class="navbar-brand" href="#" style="font-size: 30px;"><h1 class="font-weight-bold">iklan<span class="text-info">ku</span></h1></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Dropdown
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">Action</a>
+		          <a class="dropdown-item" href="#">Another action</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Something else here</a>
+		        </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<div class="title text-center mt-5 pt-5">
+			<div class="title mt-5 mb-5">
+				<h5 class="font-weight-bold" style="font-size: 26px;">Sign-in</h5>
+			</div>
+			<form action="" method="post">
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-user placeh"></i>
+						<input type="text" name="namauser" placeholder="username / email" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-lock placeh"></i>
+						<input type="password" name="sandi" placeholder="password" class="form-control">
+					</div>
+				</div>
+			</form>
+			<div class="space mb-5 mt-5">
+				<h6>Lupa password ? <span class="text-danger">Buat Baru</span></h6>
+			</div>
+			<button class="btn btn-lg btn-info pl-5 pr-5 mb-5 mt-3" style="border-radius: 1.3rem;"><h1>masuk</h1></button>
+			<br>
+			<button class="sign-in-b mb-2 btn"> <img src="../../images/google.png" height="25"> Sign in with Google</button>
+			<br>
+			<button class="sign-in-b btn mb-5"><img src="../../images/facebook.png" style="image-fit: cover; height: 25px;" height="30"> Sign in with Facebook</button>
+			<h6>Belum punya Akun ? <a href="#" class="text-danger">Daftar Baru</a></h6>
+		</div>
+	</div>
+	<script src="jquery/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>

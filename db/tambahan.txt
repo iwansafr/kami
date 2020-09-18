@@ -1,0 +1,7 @@
+ALTER TABLE `iklan` DROP `panjang`, DROP `lebar`;
+ALTER TABLE `iklan` ADD `ukuran` TINYINT(2) NOT NULL AFTER `dimensi`;
+ALTER TABLE `iklan` CHANGE `ukuran` `ukuran` TINYINT NOT NULL DEFAULT '1';
+UPDATE `iklan` SET `ukuran` = 1;
+ALTER TABLE `iklan` ADD `jenis` TINYINT(2) NOT NULL AFTER `gallery`;
+ALTER TABLE `iklan` CHANGE `jenis` `jenis` TINYINT NOT NULL DEFAULT '1';
+ALTER TABLE `user` ADD `phone` VARCHAR(20) NOT NULL AFTER `password`;

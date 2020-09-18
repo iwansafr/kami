@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<!-- =====  BASIC PAGE NEEDS  ===== -->
+	<meta charset="utf-8">
+	<title>Iklanku</title>
+	<!-- =====  SEO MATE  ===== -->
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="distribution" content="global">
+	<meta name="revisit-after" content="2 Days">
+	<meta name="robots" content="ALL">
+	<meta name="rating" content="8 YEARS">
+	<meta name="Language" content="en-us">
+	<meta name="GOOGLEBOT" content="NOARCHIVE">
+	<!-- =====  MOBILE SPECIFICATION  ===== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta name="viewport" content="width=device-width">
+	<!-- =====  CSS  ===== -->
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font-awesome/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/bootstrap/css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="http://localhost/iklanku/templates/iklanku/font/stylesheet.css" />
+	<style>
+		body{
+			font-family: 'comfortaaregular';
+			background-color: #f8f9fa!important;
+		}
+		input.custom{
+			height: 60px!important;
+			border-radius: 1.2rem!important;
+			background-color: white!important;
+			text-align: center;
+		}
+		.placeh{
+			font-size: 30px;
+			color: #656363!important;
+			position: absolute;
+	    z-index: 9;
+	    top: 12px;
+	    left: 16px;
+		}
+		.sign-in-b{
+			border-radius: 1.3rem;
+			background: white;
+			border: 1px black solid;
+			vertical-align: center;
+			font-size: 12px;
+			width: 200px;
+			text-align: left;
+		}
+		.sign-in-b:hover{
+			background-color: #17a2b8;
+		}
+		.filter{
+			font-size: 22px;
+		}
+		.product{
+			margin-bottom: 10px; 
+		}
+		.product_box{
+			border-radius: 1.2rem;
+		}
+		.description_product{
+			text-align: right;
+		}
+		.card-text{
+			font-size: 12px!important;
+		}
+		.carousel-indicators li {
+			background-color: grey;
+			background-color: grey;
+	    height: 10px;
+	    width: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container-fluid">
+		<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" style="background-color: white!important;">
+		  <a class="navbar-brand" href="#" style="font-size: 30px;"><h1 class="font-weight-bold">iklan<span class="text-info">ku</span></h1></a>
+		  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" style="border-color: rgba(0,0,0,0);">
+		    <span class="navbar-toggler-icon"></span>
+		  </button>
+
+		  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+		    <ul class="navbar-nav mr-auto">
+		      <li class="nav-item active">
+		        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link" href="#">Link</a>
+		      </li>
+		      <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Dropdown
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+		          <a class="dropdown-item" href="#">Action</a>
+		          <a class="dropdown-item" href="#">Another action</a>
+		          <div class="dropdown-divider"></div>
+		          <a class="dropdown-item" href="#">Something else here</a>
+		        </div>
+		      </li>
+		      <li class="nav-item">
+		        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+		      </li>
+		    </ul>
+		  </div>
+		</nav>
+		<br>
+		<br>
+		<br>
+		<div class="title text-center mt-5">
+			<form action="" method="post">
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-search placeh"></i>
+						<input type="text" name="kota" placeholder="masukkan nama kota / kabupaten" class="form-control custom">
+					</div>
+				</div>
+				<div class="form-group">
+					<div class="input-group">
+						<i class="fa fa-search placeh"></i>
+						<input type="text" name="kota" placeholder="masukkan nama ruas jalan" class="form-control custom">
+					</div>
+				</div>
+				<button class="btn btn-lg btn-info" style="width: 100%;border-radius: 1.2rem;">Search</button>
+			</form>
+			<br>
+			<div class="filter text-left mb-3">
+				<form action="" method="get">
+						<button class="btn btn-sm btn-light">
+							<i class="fa fa-filter"></i> <span style="text-decoration: underline;text-decoration-style:dotted;">Filter</span>
+						</button>
+						<button type="button" class="btn btn-secondary btn-sm" id="media-opsi" data-toggle="modal" data-target="#media-modal">
+						  Semua Media
+						</button>
+						<input type="hidden" value="0" name="media">
+						<button type="button" class="btn btn-secondary btn-sm" id="dimensi-opsi" data-toggle="modal" data-target="#dimensi-modal">
+						  Semua Ukuran
+						</button>
+						<input type="hidden" value="0" name="dimensi_l">
+						<input type="hidden" value="0" name="dimensi_t">
+				</form>
+				<div class="modal fade" id="media-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Pilih Media</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">Semua</button>
+				        <button data-dismiss="modal" value="1" class="media-iklan w-100 btn btn-sm btn-secondary">billboard</button>
+				        <button data-dismiss="modal" value="2" class="media-iklan w-100 btn btn-sm btn-secondary">baliho</button>
+				        <button data-dismiss="modal" value="3" class="media-iklan w-100 btn btn-sm btn-secondary">videotron</button>
+				      </div>
+				      <div class="modal-footer">
+				      </div>
+				    </div>
+				  </div>
+				</div>
+				<div class="modal fade" id="dimensi-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				  <div class="modal-dialog" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header">
+				        <h5 class="modal-title" id="exampleModalLabel">Pilih Dimensi</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div>
+				      <div class="modal-body">
+				      	<div class="form-row">
+					        <div class="col">
+							      <div class="input-group mb-2">
+							        <input value="0" id="dimensi_lebar" type="number" min="0" class="form-control" placeholder="lebar">
+							        <div class="input-group-apend">
+							          <div class="input-group-text">M</div>
+							        </div>
+							      </div>
+							    </div>
+							    x
+					        <div class="col">
+							      <div class="input-group mb-2">
+							        <input value="0" id="dimensi_tinggi" type="number" min="0" class="form-control" placeholder="tinggi">
+							        <div class="input-group-apend">
+							          <div class="input-group-text">M</div>
+							        </div>
+							      </div>
+							    </div>
+				      	</div>
+				      </div>
+				      <div class="modal-footer">
+				      	<button class="btn btn-sm btn-info" id="simpan_dimensi" data-dismiss="modal">Simpan</button>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		</div>
+		<div class="product">
+			<div class="message text-center p-5 border-dark border rounded">
+				<h5 class="mt-5 font-weight-bold">Mohon Maaf</h5>
+				<h5 class="mb-5 font-weight-bold">Lokasi Tidak Tersedia</h5>
+				<button class="btn btn-lg btn-info mb-5" style="border-radius: 1.2rem;">Request</button>
+			</div>
+		</div>
+	</div>
+	<script src="jquery/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
