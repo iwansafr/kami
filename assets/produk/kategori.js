@@ -1,41 +1,58 @@
 document.addEventListener('click', function (event) {
-  if (!event.target.matches('.update_kategori')) return;
-  event.preventDefault();
-  var id = event.target.value;
-  var title = document.getElementById('title_kat_' + id).value;
-  console.log(title);
-  var xhttp = new XMLHttpRequest();
-  xhttp.onload = function () {
-    var response = xhttp.responseText;
-    if (response != '') {
-      var data = JSON.parse(response);
-      console.log(data);
-      if (data.status) {
-        document.getElementById('title_list_' + id).innerHTML = title;
-        document.getElementById('title_kat_' + id).value = title;
-        document.getElementById('alert_' + id).classList.remove('alert-danger');
-        document.getElementById('alert_' + id).classList.add('alert-success');
-        document.getElementById('alert_' + id).innerHTML = 'Kategori berhasil diupdate';
-      } else {
-        document.getElementById('alert_' + id).classList.remove('alert-success');
-        document.getElementById('alert_' + id).classList.add('alert-danger');
-        document.getElementById('alert_' + id).innerHTML = 'Nama Kategori tidak boleh kosong';
+  if (event.target.matches('.update_kategori')) {
+    event.preventDefault();
+    var id = event.target.value;
+    document.getElementById('alert_' + id).innerHTML = 'loading ...';
+    var title = document.getElementById('title_kat_' + id).value;
+    console.log(title);
+    var xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      var response = xhttp.responseText;
+      if (response != '') {
+        var data = JSON.parse(response);
+        console.log(data);
+        if (data.status) {
+          document.getElementById('title_list_' + id).innerHTML = title;
+          document.getElementById('title_kat_' + id).value = title;
+          document.getElementById('alert_' + id).classList.remove('alert-danger');
+          document.getElementById('alert_' + id).classList.add('alert-success');
+          document.getElementById('alert_' + id).innerHTML = 'Kategori berhasil diupdate';
+        } else {
+          document.getElementById('alert_' + id).classList.remove('alert-success');
+          document.getElementById('alert_' + id).classList.add('alert-danger');
+          document.getElementById('alert_' + id).innerHTML = 'Nama Kategori tidak boleh kosong';
+        }
       }
     }
-  }
-  xhttp.open('POST', _URL + '/home/produk/kategori_update/' + id);
-  xhttp.setRequestHeader('Content-Type', 'application/json');
-  xhttp.onreadystatechange = function () {
-    if (this.readyState == 4 && this.status == 200) {
-      var response = this.responseText;
+    xhttp.open('POST', _URL + '/home/produk/kategori_update/' + id);
+    xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        var response = this.responseText;
+      }
+    };
+    var cat_title = title;
+    var data = {
+      title: cat_title
+    };
+    const stringsent = JSON.stringify(data);
+    xhttp.send(stringsent);
+  } else if (event.target.matches('.delete_kategori')) {
+    event.preventDefault();
+    var id = event.target.value;
+    xhttp = new XMLHttpRequest();
+    xhttp.onload = function () {
+      const data = JSON.parse(xhttp.responseText);
+      if (data.status) {
+        document.getElementById('card_' + id).innerHTML = '';
+        var loading = document.getElementById('loading');
+        loading.classList.add('d-none');
+      }
     }
-  };
-  var cat_title = title;
-  var data = {
-    title: cat_title
-  };
-  const stringsent = JSON.stringify(data);
-  xhttp.send(stringsent);
+    xhttp.open('get', _URL + '/home/produk/kategori_delete/' + id);
+    xhttp.send();
+  }
+
 }, false);
 function load_kategori(kat) {
   var output = '';
@@ -43,7 +60,7 @@ function load_kategori(kat) {
     output = output.concat(
       `
         <div class="col-sm-6 text-center">
-          <div class="card">
+          <div class="card" id="card_${kat[i].id}">
             <a href = "#" data-toggle="modal" data-target="#kategori_${kat[i].id}" style="padding: 5px 0 0 0;">
               <img src="${_URL}/images/ooh_active.png" class="img img-fluid img-circle">
               <p style="text-align: center;font-size: 11px;" id="title_list_${kat[i].id}">${kat[i].title}</p>
@@ -66,8 +83,8 @@ function load_kategori(kat) {
                       </div>
                     </div>
                   <div class="modal-footer">
-                    <button type="submit" class="btn btn-sm btn-info main_color update_kategori" value="${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Simpan</button>
-                    <button type="submit" class="btn btn-sm btn-danger" value = "${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Hapus</button>
+                    <button type="button" class="btn btn-sm btn-info main_color update_kategori" value="${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Simpan</button>
+                    <button type="button" class="btn btn-sm btn-danger delete_kategori" data-dismiss="modal" value = "${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Hapus</button>
                   </div>
                 </div>
               </div>
@@ -85,6 +102,18 @@ form.addEventListener('submit', function (e) {
   var xhttp = new XMLHttpRequest();
   xhttp.onload = function () {
     console.log(xhttp.responseText);
+    data = JSON.parse(xhttp.responseText);
+    const kat = data.data;
+    document.getElementById('close_cat_add').click();
+    let kat_list = document.getElementById('kat_list');
+    var output = '';
+    output = load_kategori(kat);
+    var oldput = kat_list.innerHTML;
+    output += oldput;
+    kat_list.innerHTML = output;
+    var loading = document.getElementById('loading');
+    loading.classList.add('d-none');
+
   }
   xhttp.open('POST', _URL + '/home/produk/kategori_add');
   xhttp.setRequestHeader('Content-Type', 'application/json');

@@ -51,6 +51,16 @@ class Produk extends CI_Controller
     }
     echo json_encode($output);
   }
+  public function kategori_delete($id = 0)
+  {
+    $output = ['status' => 0, 'msg' => 'Data Gagal dihapus'];
+    if (!empty($id) && $id > 0) {
+      if ($this->db->delete('produk_kat', ['id' => $id])) {
+        $output = ['status' => 1, 'msg' => 'Data Berhasil dihapus'];
+      }
+    }
+    echo json_encode($output);
+  }
   public function kategori_add()
   {
     $data = file_get_contents("php://input");
@@ -58,7 +68,7 @@ class Produk extends CI_Controller
       $data = json_decode($data, 1);
       if (!empty($data['title'])) {
         if ($this->db->insert('produk_kat', ['title' => $data['title']])) {
-          $output = ['status' => true, 'msg' => 'data berhasil disimpan', 'data' => $this->db->get_where('produk_kat', ['id' => $this->db->insert_id()])->row_array()];
+          $output = ['status' => true, 'msg' => 'data berhasil disimpan', 'data' => $this->db->get_where('produk_kat', ['id' => $this->db->insert_id()])->result_array()];
         } else {
           $output = ['status' => false, 'msg' => 'data gagal disimpan', 'data' => []];
         }
