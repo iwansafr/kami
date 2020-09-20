@@ -32,11 +32,13 @@ function set_kategori(prod_id) {
       var data = JSON.parse(xhttp.responseText);
       const kat = data.data;
       var select = document.getElementById('select_cat_' + prod_id);
-      for (i = 0; i < kat.length; i++) {
-        var c = document.createElement("option");
-        c.text = kat[i].title;
-        c.value = kat[i].id;
-        select.options.add(c, 1);
+      if (select != null) {
+        for (i = 0; i < kat.length; i++) {
+          var c = document.createElement("option");
+          c.text = kat[i].title;
+          c.value = kat[i].id;
+          select.options.add(c, 1);
+        }
       }
     }
   }
@@ -136,19 +138,19 @@ function load_produk(kat) {
                     </div>
                     <div class="form-group">
                       <!-- <label for="">Nama Produk</label> -->
-                      <input type="text" name="title" placeholder="Nama Produk" class="custom form-control" autocomplete="off">
+                      <input type="text" name="title" placeholder="Nama Produk" value="${kat[i].title}" class="custom form-control" autocomplete="off">
                     </div>
                     <div class="form-group">
                       <!-- <label for="">Harga Beli</label> -->
-                      <input type="number" name="harga_beli" placeholder="Harga Beli" class="custom form-control" autocomplete="off">
+                      <input type="number" name="harga_beli" placeholder="Harga Beli" value="${kat[i].harga_beli}" class="custom form-control" autocomplete="off">
                     </div>
                     <div class="form-group">
                       <!-- <label for="">Harga Jual</label> -->
-                      <input type="number" name="harga_jual" placeholder="Harga Jual" class="custom form-control" autocomplete="off">
+                      <input type="number" name="harga_jual" placeholder="Harga Jual" value="${kat[i].harga_jual}" class="custom form-control" autocomplete="off">
                     </div>
                     <div class="form-group">
                       <!-- <label for="">Stok</label> -->
-                      <input type="number" name="stok" placeholder="Stok" class="custom form-control" autocomplete="off">
+                      <input type="number" name="stok" placeholder="Stok" value="${kat[i].stok}" class="custom form-control" autocomplete="off">
                     </div>
                   </div>
                   <div class="modal-footer">
