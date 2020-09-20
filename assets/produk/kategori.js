@@ -59,7 +59,7 @@ function load_kategori(kat) {
   for (i = 0; i < kat.length; i++) {
     output = output.concat(
       `
-        <div class="col-sm-6 text-center">
+        <div class="col-6 text-center">
           <div class="card" id="card_${kat[i].id}">
             <a href = "#" data-toggle="modal" data-target="#kategori_${kat[i].id}" style="padding: 5px 0 0 0;">
               <img src="${_URL}/images/ooh_active.png" class="img img-fluid img-circle">

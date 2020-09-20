@@ -1,3 +1,4 @@
+
 function set_kat_option() {
   var prod_kat_id = document.getElementById('prod_kat_id');
   var xhttp = new XMLHttpRequest();
@@ -6,7 +7,8 @@ function set_kat_option() {
       var data = JSON.parse(xhttp.responseText);
       console.log(data);
       const kat = data.data;
-      var output = '';
+      options = '';
+      kat_options = kat;
       for (i = 0; i < kat.length; i++) {
         var c = document.createElement("option");
         c.text = kat[i].title;
@@ -18,6 +20,25 @@ function set_kat_option() {
     }
     var loading = document.getElementById('loading');
     loading.classList.add('d-none');
+  }
+  xhttp.open('GET', _URL + '/home/produk/kategori_search/');
+  xhttp.setRequestHeader('Content-Type', 'application/json');
+  xhttp.send();
+}
+function set_kategori(prod_id) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    if (xhttp.responseText != '') {
+      var data = JSON.parse(xhttp.responseText);
+      const kat = data.data;
+      var select = document.getElementById('select_cat_' + prod_id);
+      for (i = 0; i < kat.length; i++) {
+        var c = document.createElement("option");
+        c.text = kat[i].title;
+        c.value = kat[i].id;
+        select.options.add(c, 1);
+      }
+    }
   }
   xhttp.open('GET', _URL + '/home/produk/kategori_search/');
   xhttp.setRequestHeader('Content-Type', 'application/json');
@@ -93,7 +114,7 @@ function load_produk(kat) {
   for (i = 0; i < kat.length; i++) {
     output = output.concat(
       `
-        <div class="col-sm-6 text-center">
+        <div class="col-6 text-center">
           <div class="card" id="card_${kat[i].id}">
             <a href = "#" data-toggle="modal" data-target="#produk_${kat[i].id}" style="padding: 5px 0 0 0;">
               <img src="${_URL}/images/ooh_active.png" class="img img-fluid img-circle">
@@ -109,13 +130,27 @@ function load_produk(kat) {
                     </button>
                   </div>
                   <div class="modal-body">
-                      <div class="form-group mb-3 pt-2">
-                        <div class="form-group">
-                          <div class="alert" id="alert_${kat[i].id}"></div>
-                          <input type="text" name="title" autocomplete="off" placeholder="Nama Kategori" id="title_produk_${kat[i].id}" value="${kat[i].title}" class="custom form-control">
-                        </div>
-                      </div>
+                    <div class="form-group">
+                      <!-- <label for="">Kategori</label> -->
+                      <select name="produk_kat_id" class="form-control custom" id="select_cat_${kat[i].id}"></select>
                     </div>
+                    <div class="form-group">
+                      <!-- <label for="">Nama Produk</label> -->
+                      <input type="text" name="title" placeholder="Nama Produk" class="custom form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <!-- <label for="">Harga Beli</label> -->
+                      <input type="number" name="harga_beli" placeholder="Harga Beli" class="custom form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <!-- <label for="">Harga Jual</label> -->
+                      <input type="number" name="harga_jual" placeholder="Harga Jual" class="custom form-control" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                      <!-- <label for="">Stok</label> -->
+                      <input type="number" name="stok" placeholder="Stok" class="custom form-control" autocomplete="off">
+                    </div>
+                  </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-info main_color update_produk" value="${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Simpan</button>
                     <button type="button" class="btn btn-sm btn-danger delete_produk" data-dismiss="modal" value = "${kat[i].id}" style="border-radius: 0.5rem; font-size: 4vw;">Hapus</button>
@@ -126,6 +161,7 @@ function load_produk(kat) {
           </div>
         </div>
         `);
+    set_kategori(kat[i].id);
   }
   return output;
 }
