@@ -7,7 +7,7 @@ body {
 	padding-top: 2vw;
 }
 
-input.custom {
+input.custom , select.custom{
 	height: 10vw !important;
 	border-radius: 1.5rem !important;
 	background-color: white !important;

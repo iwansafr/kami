@@ -1,3 +1,31 @@
+function set_kat_option() {
+  var prod_kat_id = document.getElementById('prod_kat_id');
+  var xhttp = new XMLHttpRequest();
+  xhttp.onload = function () {
+    if (xhttp.responseText != '') {
+      var data = JSON.parse(xhttp.responseText);
+      console.log(data);
+      const kat = data.data;
+      var output = '';
+      for (i = 0; i < kat.length; i++) {
+        var c = document.createElement("option");
+        c.text = kat[i].title;
+        c.value = kat[i].id;
+        prod_kat_id.options.add(c, 1);
+      }
+    } else {
+      // prod_kat_id.innerHTML = '<h5 class="text-center">Data Tidak Ditemukan</h5>';
+    }
+    var loading = document.getElementById('loading');
+    loading.classList.add('d-none');
+
+  }
+  xhttp.open('GET', _URL + '/home/produk/kategori_search/');
+  xhttp.setRequestHeader('Content-Type', 'application/json');
+  xhttp.send();
+}
+set_kat_option();
+
 document.addEventListener('click', function (event) {
   if (event.target.matches('.update_produk')) {
     event.preventDefault();
