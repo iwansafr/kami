@@ -87,5 +87,7 @@ class Produk extends CI_Controller
 
   public function index()
   {
+    $this->esg->add_js(base_url('assets/produk/produk.js'));
+    $this->load->view('index');
   }
 }
