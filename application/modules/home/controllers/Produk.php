@@ -100,6 +100,13 @@ class Produk extends CI_Controller
     $data = $this->db->get('produk_kat')->result_array();
     echo json_encode(['data' => $data]);
   }
+  public function list()
+  {
+    $this->db->select('*');
+    $this->db->limit(12, 0);
+    $data = $this->db->get('produk')->result_array();
+    echo json_encode(['data' => $data]);
+  }
 
   public function index()
   {

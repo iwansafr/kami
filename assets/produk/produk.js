@@ -18,11 +18,17 @@ function set_kat_option() {
     }
     var loading = document.getElementById('loading');
     loading.classList.add('d-none');
-
   }
   xhttp.open('GET', _URL + '/home/produk/kategori_search/');
   xhttp.setRequestHeader('Content-Type', 'application/json');
   xhttp.send();
+}
+function clear_form() {
+  document.getElementById('prod_kat_id').value = '';
+  document.getElementById('prod_title').value = '';
+  document.getElementById('prod_buy').value = '';
+  document.getElementById('prod_sell').value = '';
+  document.getElementById('prod_stock').value = '';
 }
 set_kat_option();
 
@@ -141,7 +147,7 @@ form.addEventListener('submit', function (e) {
     produk_list.innerHTML = output;
     var loading = document.getElementById('loading');
     loading.classList.add('d-none');
-
+    clear_form();
   }
   xhttp.open('POST', _URL + '/home/produk/add');
   xhttp.setRequestHeader('Content-Type', 'application/json');
@@ -171,7 +177,8 @@ list.onload = function () {
   const data = JSON.parse(list.responseText);
   if (data.data != undefined) {
     const kat = data.data;
-    let produk_list = document.getElementById('produk_list');
+    console.log(kat);
+    let produk_list = document.getElementById('prod_list');
     var output = '';
     output = load_produk(kat);
     produk_list.innerHTML = output;
