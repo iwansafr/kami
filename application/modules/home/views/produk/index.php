@@ -29,7 +29,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="" method="post" class="mt-1" id="kategori_form">
+          <form action="" method="post" class="mt-1" id="produk_form">
             <div class="form-group mb-3 pt-2">
               <div class="form-group">
                 <!-- <label for="">Kategori</label> -->
@@ -41,7 +41,7 @@
               </div>
               <div class="form-group">
                 <!-- <label for="">Harga Beli</label> -->
-                <input type="number" name="harga_beli" placeholder="Harga Beli" class="custom form-control" id="prod_price" autocomplete="off">
+                <input type="number" name="harga_beli" placeholder="Harga Beli" class="custom form-control" id="prod_buy" autocomplete="off">
               </div>
               <div class="form-group">
                 <!-- <label for="">Harga Jual</label> -->

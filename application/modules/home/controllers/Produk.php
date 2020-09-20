@@ -77,6 +77,22 @@ class Produk extends CI_Controller
     }
   }
 
+  public function add()
+  {
+    $data = file_get_contents("php://input");
+    if (!empty($data)) {
+      $data = json_decode($data, 1);
+      if (!empty($data['title'])) {
+        if ($this->db->insert('produk', $data)) {
+          $output = ['status' => true, 'msg' => 'data berhasil disimpan', 'data' => $this->db->get_where('produk', ['id' => $this->db->insert_id()])->result_array()];
+        } else {
+          $output = ['status' => false, 'msg' => 'data gagal disimpan', 'data' => []];
+        }
+        echo json_encode($output);
+      }
+    }
+  }
+
   public function kategori_list()
   {
     $this->db->select('*');

@@ -132,8 +132,8 @@ form.addEventListener('submit', function (e) {
     console.log(xhttp.responseText);
     data = JSON.parse(xhttp.responseText);
     const kat = data.data;
-    document.getElementById('close_cat_add').click();
-    let produk_list = document.getElementById('produk_list');
+    document.getElementById('close_prod_add').click();
+    let produk_list = document.getElementById('prod_list');
     var output = '';
     output = load_produk(kat);
     var oldput = produk_list.innerHTML;
@@ -143,16 +143,24 @@ form.addEventListener('submit', function (e) {
     loading.classList.add('d-none');
 
   }
-  xhttp.open('POST', _URL + '/home/produk/produk_add');
+  xhttp.open('POST', _URL + '/home/produk/add');
   xhttp.setRequestHeader('Content-Type', 'application/json');
   xhttp.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       var response = this.responseText;
     }
   };
-  var cat_title = document.getElementById('produk_title').value;
+  var prod_kat_id = document.getElementById('prod_kat_id').value;
+  var prod_title = document.getElementById('prod_title').value;
+  var prod_buy = document.getElementById('prod_buy').value;
+  var prod_sell = document.getElementById('prod_sell').value;
+  var prod_stock = document.getElementById('prod_stock').value;
   var data = {
-    title: cat_title
+    produk_kat_id: prod_kat_id,
+    title: prod_title,
+    harga_beli: prod_buy,
+    harga_jual: prod_sell,
+    stok: prod_stock
   };
   const stringsent = JSON.stringify(data);
   xhttp.send(stringsent);
