@@ -192,7 +192,7 @@ list.send();
 form_cari = document.getElementById('cari_produk');
 form_cari.addEventListener('keyup', function () {
   loading.classList.remove('d-none');
-  let produk_list = document.getElementById('produk_list');
+  let produk_list = document.getElementById('prod_list');
   produk_list.innerHTML = '';
   var title = this.value;
   var xhttp = new XMLHttpRequest();

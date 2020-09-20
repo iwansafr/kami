@@ -35,6 +35,19 @@ class Produk extends CI_Controller
       echo json_encode(['data' => $data, 'query' => $this->db->last_query()]);
     }
   }
+  public function search($title = '')
+  {
+    if (!empty($title)) {
+      $this->db->like('title', $title);
+      $this->db->limit(12, 0);
+      $data = $this->db->get('produk')->result_array();
+    } else {
+      $data = $this->db->get('produk')->result_array();
+    }
+    if (!empty($data)) {
+      echo json_encode(['data' => $data, 'query' => $this->db->last_query()]);
+    }
+  }
   public function kategori_update($id = 0)
   {
     $output = ['status' => 0, 'data' => []];
