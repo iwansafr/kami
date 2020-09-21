@@ -207,8 +207,68 @@ form.addEventListener('submit', function (e) {
     stok: prod_stock
   };
   const stringsent = JSON.stringify(data);
-  xhttp.send(stringsent);
+  var valid = true;
+  console.log(data);
+  if (prod_kat_id == '') {
+    valid = false;
+    document.getElementById('alert_kat').classList.remove('d-none');
+  }
+  if (prod_title == '') {
+    valid = false;
+    document.getElementById('alert_title').classList.remove('d-none');
+  }
+
+  if (prod_buy == '') {
+    valid = false;
+    document.getElementById('alert_buy').classList.remove('d-none');
+  }
+  if (prod_sell == '') {
+    valid = false;
+    document.getElementById('alert_sell').classList.remove('d-none');
+  }
+  if (prod_stock == '') {
+    valid = false;
+    document.getElementById('alert_stock').classList.remove('d-none');
+  }
+  if (valid) {
+    xhttp.send(stringsent);
+  }
 });
+
+function form_ready() {
+  document.getElementById('prod_kat_id').addEventListener('change', function () {
+    var value = this.value;
+    if (value != '') {
+      document.getElementById('alert_kat').classList.add('d-none');
+    }
+  });
+  document.getElementById('prod_title').addEventListener('keyup', function () {
+    var value = this.value;
+    if (value != '') {
+      document.getElementById('alert_title').classList.add('d-none');
+    }
+  });
+  document.getElementById('prod_buy').addEventListener('keyup', function () {
+    var value = this.value;
+    if (value != '') {
+      document.getElementById('alert_buy').classList.add('d-none');
+    }
+  });
+  document.getElementById('prod_sell').addEventListener('keyup', function () {
+    var value = this.value;
+    if (value != '') {
+      document.getElementById('alert_sell').classList.add('d-none');
+    }
+  });
+  document.getElementById('prod_stock').addEventListener('keyup', function () {
+    var value = this.value;
+    if (value != '') {
+      document.getElementById('alert_stock').classList.add('d-none');
+    }
+  });
+}
+
+form_ready();
 
 list = new XMLHttpRequest();
 list.onload = function () {

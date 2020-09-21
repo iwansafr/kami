@@ -23,7 +23,7 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+          <h5 class="modal-title">Tambah Produk</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="close_prod_add">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -32,24 +32,29 @@
           <form action="" method="post" class="mt-1" id="produk_form">
             <div class="form-group mb-3 pt-2">
               <div class="form-group">
-                <!-- <label for="">Kategori</label> -->
+                <label class="label" for="">Kategori</label>
                 <select name="produk_kat_id" class="form-control select2 custom" name="produk_kat_id" id="prod_kat_id"></select>
+                <span id="alert_kat" class="danger d-none">kategori tidak boleh kosong</span>
               </div>
               <div class="form-group">
-                <!-- <label for="">Nama Produk</label> -->
+                <label class="label" for="">Nama Produk</label>
                 <input type="text" name="title" placeholder="Nama Produk" class="custom form-control" id="prod_title" autocomplete="off">
+                <span id="alert_title" class="danger d-none">nama produk tidak boleh kosong</span>
               </div>
               <div class="form-group">
-                <!-- <label for="">Harga Beli</label> -->
+                <label class="label" for="">Harga Beli</label>
                 <input type="number" name="harga_beli" placeholder="Harga Beli" class="custom form-control" id="prod_buy" autocomplete="off">
+                <span id="alert_buy" class="danger d-none">harga beli produk tidak boleh kosong</span>
               </div>
               <div class="form-group">
-                <!-- <label for="">Harga Jual</label> -->
+                <label class="label" for="">Harga Jual</label>
                 <input type="number" name="harga_jual" placeholder="Harga Jual" class="custom form-control" id="prod_sell" autocomplete="off">
+                <span id="alert_sell" class="danger d-none">harga jual produk tidak boleh kosong</span>
               </div>
               <div class="form-group">
-                <!-- <label for="">Stok</label> -->
+                <label class="label" for="">Stok</label>
                 <input type="number" name="stok" placeholder="Stok" class="custom form-control" id="prod_stock" autocomplete="off">
+                <span id="alert_stock" class="danger d-none">stok produk tidak boleh kosong</span>
               </div>
             </div>
             <button type="submit" class="btn btn-sm btn-info main_color" style="width: 100%;border-radius: 0.5rem; font-size: 4vw;">Tambah Produk</button>

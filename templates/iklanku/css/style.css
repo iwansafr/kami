@@ -37,3 +37,10 @@ input.custom , select.custom{
 	background-color: #2cb7d3;
 	color: white;
 }
+
+.label{
+	font-size: 24px;
+}
+.danger{
+	color: red;
+}
